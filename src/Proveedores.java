@@ -1,4 +1,6 @@
-public class Proveedores {
+import java.io.Serializable;
+
+public class Proveedores implements Serializable {
     private String nombre;
     private String telefono;
 

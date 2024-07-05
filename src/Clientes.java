@@ -1,4 +1,6 @@
-public class Clientes {
+import java.io.Serializable;
+
+public class Clientes implements Serializable{
     private String nombre;
     private String telefono;
     private String email;
@@ -30,10 +32,18 @@ public class Clientes {
         this.telefono = telefono;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public void setEmail(String email) {
          this.email = email;
     }
-        
+       
+    public String getNdecuenta() {
+        return ndecuenta;
+    }
+
     public void setNdecuenta(String ndecuenta) {
         this.ndecuenta = ndecuenta;
     }
@@ -42,5 +52,4 @@ public class Clientes {
     public String toString() {
         return "Proveedores{" + "nombre: '" + nombre + '\'' + ", telefono: " + telefono + "'" + " email: '" + email + "'" + "Ndecuenta" + ndecuenta + '}';
     }
-
 }
