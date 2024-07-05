@@ -9,6 +9,18 @@ public class Principal {
         ControlAcceso controlAcceso = new ControlAcceso("usuarios.txt");
         Scanner scanner = new Scanner(System.in);
 
+        // Si no hay usuarios, registrar uno nuevo
+        if (controlAcceso.usuarios.isEmpty()) {
+            System.out.println("No hay usuarios registrados. Registre un nuevo usuario administrador.");
+            System.out.print("Nombre de usuario: ");
+            String nombreUsuario = scanner.nextLine();
+            System.out.print("Contraseña: ");
+            String contraseña = scanner.nextLine();
+            Usuario admin = new Usuario(nombreUsuario, contraseña);
+            controlAcceso.agregarUsuario(admin);
+            System.out.println("Usuario administrador registrado exitosamente.");
+        }
+        
         boolean autenticado = false;
 
         // Control de acceso
