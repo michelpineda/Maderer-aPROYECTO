@@ -65,6 +65,7 @@ public class ControlAcceso {
         }
 
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivo))) {
+            @SuppressWarnings("No comprobado")
             ArrayList<Usuario> loadedUsuarios = (ArrayList<Usuario>) ois.readObject();
             usuarios.addAll(loadedUsuarios);
         } catch (IOException | ClassNotFoundException e) {

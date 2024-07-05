@@ -16,11 +16,11 @@ public class Principal {
             String nombreUsuario = scanner.nextLine();
             System.out.print("Contraseña: ");
             String contraseña = scanner.nextLine();
-            Usuario admin = new Usuario(nombreUsuario, contraseña);
+            Usuario admin = new Usuario(nombreUsuario, contraseña, contraseña);
             controlAcceso.agregarUsuario(admin);
             System.out.println("Usuario administrador registrado exitosamente.");
         }
-        
+
         boolean autenticado = false;
 
         // Control de acceso
@@ -44,6 +44,7 @@ public class Principal {
             System.out.println("1. Control de Inventario");
             System.out.println("2. Agenda de Clientes");
             System.out.println("3. Agenda de Proveedores");
+            System.out.println("4. Salir");
             int opcionprin = scanner.nextInt();
             switch (opcionprin) {
                 case 1:
@@ -56,7 +57,7 @@ public class Principal {
                         System.out.println("4. Mostrar inventario");
                         System.out.println("5. Salir");
                         int opcioninv = scanner.nextInt();
-                        scanner.nextLine(); // Consume newline
+                        scanner.nextLine(); // scanear la sig.linea
                         switch (opcioninv) {
                             case 1 -> {
                                 System.out.print("Ingrese nombre del producto: ");
@@ -110,7 +111,7 @@ public class Principal {
                         System.out.println("4. Mostrar Agenda de Clientes");
                         System.out.println("5. Salir");
                         int opcionclien = scanner.nextInt();
-                        scanner.nextLine(); // Consume newline
+                        scanner.nextLine(); // escanear el sig.caso
                         switch (opcionclien) {
                             case 1 -> {
                                 System.out.print("Ingrese nombre del Cliente: ");
@@ -166,7 +167,7 @@ public class Principal {
                         System.out.println("4. Mostrar Agenda de Proveedores");
                         System.out.println("5. Salir");
                         int opcionprov = scanner.nextInt();
-                        scanner.nextLine(); // Consume newline
+                        scanner.nextLine(); // escanear la sig.linea
                         switch (opcionprov) {
                             case 1 -> {
                                 System.out.print("Ingrese nombre del Proveedor: ");
@@ -208,6 +209,15 @@ public class Principal {
                         }
                         System.out.println();
                     }
+                    
+                    case 4:
+                    System.out.println("Saliendo...");
+                    inventario.guardarInventario();
+                    agendaClientes.guardarAgenda();
+                    agendaProveedores.guardarAgenda();
+                    controlAcceso.guardarUsuarios();
+                    scanner.close();
+                    System.exit(0);
             }
         }
     }
